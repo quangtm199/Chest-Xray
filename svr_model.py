@@ -59,12 +59,13 @@ def home_page():
                 source1 = os.path.join(app.config['UPLOAD_FOLDER'],"real"+image.filename)
                 source=os.path.join(app.config['UPLOAD_FOLDER'],image.filename)
                 print("Save= ", source1)
+                # image.save(source)
                 image.save(source1)
                 source1="real"+image.filename
-
+                source2 = os.path.join(app.config['UPLOAD_FOLDER'], "real" + image.filename)
                 # source = "data/images/sample4.jpg"
                 save_img = True
-                dataset = LoadImages(source, img_size=imgsz, stride=stride)
+                dataset = LoadImages(source2, img_size=imgsz, stride=stride)
 
                 # Get names and colors
                 names = model.module.names if hasattr(model, 'module') else model.names
